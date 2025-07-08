@@ -8,7 +8,7 @@ function App() {
     <AppContextProvider>
       <div className="dark:bg-[#21364A]">
         <NavBar />
-        <div className="mt-16">
+        <div className="mt-10">
           <Dashboard />
         </div>
       </div>
