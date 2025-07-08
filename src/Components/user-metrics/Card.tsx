@@ -3,7 +3,7 @@ type CardDetails = {
     title: string;
     total: string;
     change: string;
-    changeRate: number
+    changeRate: string
 }
 
 
@@ -13,7 +13,7 @@ type CardProps = {
 
 function Card({ details }: CardProps) {
     return (
-      <div className="flex flex-col justify-between border border-[#DBE0E5] rounded-[8px] w-[298px] h-[144px] px-[24px] py-[16px]">
+      <div className="flex flex-col justify-between border border-[#DBE0E5] rounded-[8px] w-[456px] h-[144px] px-[24px] py-[16px]">
         <span>{details.title}</span>
         <span className="font-bold text-[24px]">{details.total}</span>
         <div>{details.change === 'pos' ? (

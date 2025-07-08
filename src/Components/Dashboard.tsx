@@ -1,4 +1,7 @@
-import Metrics from "./user-metrics/Metrics"
+import RevenueMetrics from "./revenue-metrics/RevenueMetrics"
+import SystemMetrics from "./system-metrics/SystemMetrics"
+import UserMetrics from "./user-metrics/UserMetrics"
+
 
 
 function Dashboard() {
@@ -6,7 +9,9 @@ function Dashboard() {
     <div className="px-[160px] py-[16px]">
       <div className=" space-y-2">
         <div className="font-bold text-2xl p-[16px]">Dashboard</div>
-         <Metrics />
+         <UserMetrics />
+         <RevenueMetrics />
+         <SystemMetrics />
       </div>
     </div>
   )

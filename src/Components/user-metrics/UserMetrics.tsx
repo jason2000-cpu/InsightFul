@@ -7,24 +7,24 @@ const cardDetails = [
         title: 'Active Users',
         total: '1,234',
         change: 'pos',
-        changeRate: 5 
+        changeRate: '5' 
     },
     {
         id: 2,
         title: 'New Sign-Ups',
         total: '56',
         change: 'pos',
-        changeRate: 10
+        changeRate: '10'
     },
     {
         id: 3,
         title: 'User Growth',
         total: '+12',
         change: 'neg',
-        changeRate: 2
+        changeRate: '2'
     }
 ]
-function Metrics() {
+function UserMetrics() {
   return (
     <div className="px-[16px]">
         <div className="pb-[16px]">Key Metrics</div>
@@ -41,4 +41,4 @@ function Metrics() {
   )
 }
 
-export default Metrics
+export default UserMetrics
