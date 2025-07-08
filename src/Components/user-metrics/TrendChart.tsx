@@ -6,6 +6,7 @@ import {
     AreaChart,
     Area,
   } from 'recharts';
+// import { useFetchData } from '../../hooks/useFetchData';
   
   const data = [
     { name: 'Jan', value: 400 },
@@ -18,10 +19,13 @@ import {
   ];
   
   export default function TrendChart() {
+
+    // const { data, loading } = useFetchData("https://jsonplaceholder.typicode.com/users");
+
     return (
-      <div className="w-full rounded-lg border border-[#DBE0E5] p-6">
-        <h2 className="text-sm text-gray-500 mb-1">User Growth Trend</h2>
-        <p className="text-2xl font-bold">+12%</p>
+      <div className="w-full rounded-lg border dark:border-gray-500 border-[#DBE0E5] p-6">
+        <h2 className="text-sm text-gray-500 mb-1 ">User Growth Trend</h2>
+        <p className="text-2xl font-bold dark:text-gray-300">+12%</p>
         <p className="text-xs text-gray-500">
           Last 30 Days <span className="text-green-500">+2%</span>
         </p>

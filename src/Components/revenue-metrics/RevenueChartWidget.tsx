@@ -21,9 +21,9 @@ import {
     const growth = 15;
   
     return (
-      <div className="bg-white rounded-lg shadow p-4">
+      <div className="bg-white dark:bg-[#21364A] rounded-lg shadow p-4">
         <h2 className="text-sm font-medium text-gray-500">Monthly Revenue</h2>
-        <p className="text-2xl font-bold text-gray-900">${totalRevenue.toLocaleString()}</p>
+        <p className="text-2xl font-bold text-gray-900 dark:text-gray-300">${totalRevenue.toLocaleString()}</p>
         <p className="text-sm text-green-600">This Month +{growth}%</p>
   
         <div className="mt-4" style={{ width: '100%', height: 200 }}>

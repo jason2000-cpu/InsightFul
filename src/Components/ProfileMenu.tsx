@@ -1,9 +1,11 @@
 import { Menu, Transition } from '@headlessui/react';
-import { Fragment, useContext } from 'react';
-import { AppContext } from '../contexts/AppContext';
+import { Fragment } from 'react';
+import { useTheme } from '../hooks/useTheme';
 
 export default function ProfileMenu() {
-  const { theme, toggleTheme } = useContext(AppContext);
+  const { toggleTheme } = useTheme();
+
+  console.log("Theme Toggle", toggleTheme);
 
   return (
     <Menu as="div" className="relative inline-block text-left dark:bg-[#21364A]">
@@ -23,7 +25,7 @@ export default function ProfileMenu() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="absolute right-0 mt-2 w-48 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg focus:outline-none z-50"
+          className="absolute right-0 mt-2 w-48 origin-top-right bg-white dark:bg-[#21364A] border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg focus:outline-none z-50"
         >
           <div className="px-1 py-1">
             <Menu.Item>
@@ -32,7 +34,7 @@ export default function ProfileMenu() {
                 onClick={() => toggleTheme() }
                   className={`${
                     active ? 'bg-gray-100' : ''
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700`}
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 dark:text-gray-300`}
                 >
                   Toggle Theme
                 </button>
@@ -44,7 +46,7 @@ export default function ProfileMenu() {
                 <button
                   className={`${
                     active ? 'bg-gray-100' : ''
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700`}
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 dark:text-gray-300`}
                 >
                   Account Settings
                 </button>
@@ -58,7 +60,7 @@ export default function ProfileMenu() {
                 <button
                   className={`${
                     active ? 'bg-gray-100' : ''
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700`}
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm text-gray-700 dark:text-gray-300`}
                 >
                   Logout
                 </button>

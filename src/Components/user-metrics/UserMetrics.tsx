@@ -27,7 +27,7 @@ const cardDetails = [
 function UserMetrics() {
   return (
     <div className="px-[16px]">
-        <div className="pb-[16px]">Key Metrics</div>
+        <div className="pb-[16px] dark:text-gray-400">Key Metrics</div>
         <div className="flex space-x-[16px] space-y-[16px]  w-full justify-between m">
             {
                 cardDetails.map( det => <Card  key={det.id} details={det}/>)
