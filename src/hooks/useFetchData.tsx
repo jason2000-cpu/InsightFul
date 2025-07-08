@@ -1,21 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 
-export function useFetchData(url: string, interval = 10000) {
-  const [data, setData] = useState(null);
+export function useFetchData<T>(url: string, interval = 10000) {
+  const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
+  const [ error, setError ] = useState('');
 
   useEffect(() => {
     let isMounted = true;
 
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+          headers: {
+            'X-API-Key': 'd0802fb0',
+          },
+        });
         const json = await response.json();
         if (isMounted) {
           setData(json);
           setLoading(false);
         }
-      } catch (error) {
+      } catch (error: any) {
+        setError(error.message)
         console.error('Error fetching data:', error);
       }
     };
@@ -29,5 +36,5 @@ export function useFetchData(url: string, interval = 10000) {
     };
   }, [url, interval]);
 
-  return { data, loading };
+  return { data, loading, error };
 }

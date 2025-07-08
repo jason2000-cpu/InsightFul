@@ -6,21 +6,15 @@ import {
     AreaChart,
     Area,
   } from 'recharts';
-// import { useFetchData } from '../../hooks/useFetchData';
+import { useFetchData } from '../../hooks/useFetchData';
   
-  const data = [
-    { name: 'Jan', value: 400 },
-    { name: 'Feb', value: 300 },
-    { name: 'Mar', value: -100 },
-    { name: 'Apr', value: 200 },
-    { name: 'May', value: -50 },
-    { name: 'Jun', value: 150 },
-    { name: 'Jul', value: 350 },
-  ];
   
-  export default function TrendChart() {
+export default function TrendChart() {
 
-    // const { data, loading } = useFetchData("https://jsonplaceholder.typicode.com/users");
+    const { data, loading, error} = useFetchData("https://my.api.mockaroo.com/user_chart_data.json");
+
+    if(loading) return <p>Loading...</p>
+    if(error) return <p>{error}</p>
 
     return (
       <div className="w-full rounded-lg border dark:border-gray-500 border-[#DBE0E5] p-6">
@@ -32,7 +26,7 @@ import {
   
         <div className="mt-4 w-full h-40">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data}>
+            <AreaChart data={data || []}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#61758A" stopOpacity={0.2} />
@@ -55,5 +49,5 @@ import {
         </div>
       </div>
     );
-  }
+}
   

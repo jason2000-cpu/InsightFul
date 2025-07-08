@@ -1,41 +1,25 @@
+import { useFetchData } from "../../hooks/useFetchData"
 import Card from "../user-metrics/Card"
 
-const cardDetails = [
-    {
-        id: 1,
-        title: 'System Uptime',
-        total: '99.9%',
-        change: 'pos',
-        changeRate:' 0.1',
-    },
-    {
-        id: 2, 
-        title: 'Server Status',
-        total: 'Online',
-        change: 'pos',
-        changeRate: 'N/A'
-    },
-    {
-        id: 3, 
-        title: 'Critical Alerts',
-        total: '0',
-        change: 'pos',
-        changeRate: 'N/A'
-    }
-]
 
 function SystemMetrics() {
-  return (
-    <div className="px-[16px]">
-        <div className="pb-[16px] font-bold text-[18px]">System Health</div>
-        <div className="flex space-x-[16px] space-y-[16px]  w-full justify-between">
-            {
-                cardDetails.map( details => <Card key={details.id} details={details} />)
-            }
+    const { data, loading, error } = useFetchData('https://my.api.mockaroo.com/system_health_stats.json');
+
+    if (loading) return <p>Loading....</p>
+    if(error) return <p>{error}</p>
+
+
+    return (
+        <div className="px-[16px]">
+            <div className="pb-[16px] font-bold text-[18px]">System Health</div>
+            <div className="flex space-x-[16px] space-y-[16px]  w-full justify-between">
+            { Array.isArray(data) && data.map(det => (
+                <Card key={det.id} details={det} />
+                )) }
+            </div>
+            
         </div>
-        
-    </div>
-  )
+    )
 }
 
 export default SystemMetrics

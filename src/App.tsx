@@ -6,7 +6,7 @@ function App() {
 
   return (
     <AppContextProvider>
-      <div className="dark:bg-[#21364A]">
+      <div className="dark:bg-[#21364A] h-[100vh]">
         <NavBar />
         <div className="mt-10">
           <Dashboard />

@@ -7,10 +7,22 @@ type ProviderProps = {
 
 
 export function AppContextProvider({ children }: ProviderProps) {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+    const toggleTheme = () => {
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateHtmlClass(newTheme);
+    };
   
-    const toggleTheme = () =>
-      setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    const updateHtmlClass = (theme: 'light' | 'dark') => {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    };
   
     return (
       <AppContext.Provider value={{ theme, toggleTheme }}>
